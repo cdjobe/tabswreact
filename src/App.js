@@ -1,21 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Tab from './components/Tab';
+import ShowContent from './components/ShowContent';
+import DisplayContent from './components/DisplayContent';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+const App = () => {
+
+  const [activeTab, setActiveTab] = useState({
+      activeTab: '',
+      activeContent: '' 
+      });
+  
+
+  const tabs = [{
+    tabLabel: "Tab 1",
+    tabContent: "Tab 1 content"
+  },
+  {
+    tabLabel: "Tab 2",
+    tabContent: "Tab 2 content"
+  },
+  {
+    tabLabel: "Tab 3",
+    tabContent: "Tab 3 content"
   }
+  ]
+  
+  
+  return (
+    <div className="App">
+      {tabs.map(item => (<Tab activeTab={activeTab} setActiveTab={setActiveTab} label={item["tabLabel"]} content = {item["tabContent"]}/>))}
+      
+      <div className="displayBox">
+          <h1>{activeTab.activeContent}</h1>
+      </div>
+    </div>
+  );
 }
 
 export default App;

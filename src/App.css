@@ -22,3 +22,26 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.tab {
+  width: 100px;
+  min-height: 30px;
+  border: 1px solid black;
+  background-color: red;
+  display: inline-block;
+  margin: 30px;
+  padding-top: 15px;
+}
+
+.tab-active {
+  background-color: blue;
+  color: white;
+}
+
+.displayBox {
+  width: 500px;
+  min-height: 200px;
+  border: 1px solid black;
+  margin: 10px auto;
+
+}
